@@ -1,6 +1,7 @@
 class Transaction {
   constructor() {
-    this._credit = 0
+    this.date = Date.now()
+    this.credit = 0
     this.debit = 0
   }
 }
