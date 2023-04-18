@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681860824913" clover="3.2.0">
-  <project timestamp="1681860824913" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="12" coveredelements="12" complexity="0" loc="8" ncloc="8" packages="1" files="2" classes="2"/>
+<coverage generated="1681861095943" clover="3.2.0">
+  <project timestamp="1681861095943" name="All files">
+    <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="13" coveredelements="13" complexity="0" loc="9" ncloc="9" packages="1" files="2" classes="2"/>
     <file name="accountModel.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/accountModel.js">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
     </file>
     <file name="transaction.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/transaction.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
