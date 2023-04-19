@@ -25,6 +25,14 @@ describe(AccountView, () => {
 
   describe(".printStatement", () => {
 
+    it("should display a header", () => {
+      const model = { balance: 0, transactions: []}
+      const expectedHeader = "date || credit || debit || balance"
+      view.printStatement(model)
+      expect(consoleSpy.mock.calls[0][0])
+      .toEqual(expect.stringContaining(expectedHeader))
+    })
+
     describe("date output", () => {
       it("should be in the format DD/MM/YYYY", () => {
         model = {
@@ -34,6 +42,7 @@ describe(AccountView, () => {
         const formattedDate = "19/04/2023"
 
         view.printStatement(model)
+
         expect(consoleSpy.mock.calls[0][0])
           .toEqual(expect.stringContaining(formattedDate))
       })
@@ -126,9 +135,9 @@ describe(AccountView, () => {
       const expectedOutput3 = "19/04/2023 ||  || 100.00 || 100.00"
 
       view.printStatement(model)
-      expect(consoleSpy.mock.calls[0][0]).toEqual(expectedOutput3)
-      expect(consoleSpy.mock.calls[1][0]).toEqual(expectedOutput2)
-      expect(consoleSpy.mock.calls[2][0]).toEqual(expectedOutput1)
+      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput3))
+      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput2))
+      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput1))
     })
   })
 })
