@@ -22,12 +22,12 @@ describe(Transaction, () => {
     })
 
     it("should have a date property holding the date of instanciation", () => {
-      const now = new Date(2023, 3, 18) 
-      const fakeDateNow = jest.spyOn(Date, "now")
-      fakeDateNow.mockImplementation(() => now )
+      const fakeDate = new Date(2023, 3, 18) 
+      const dateSpy = jest.spyOn(global, 'Date')
+      dateSpy.mockImplementation(() => fakeDate)
   
       const mockedTransaction = new Transaction()
-      expect(mockedTransaction.date).toEqual(now)
+      expect(mockedTransaction.date).toEqual(fakeDate)
     })
   })
 
