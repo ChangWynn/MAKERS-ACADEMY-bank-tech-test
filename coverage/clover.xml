@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681912628530" clover="3.2.0">
-  <project timestamp="1681912628530" name="All files">
-    <metrics statements="28" coveredstatements="28" conditionals="10" coveredconditionals="10" methods="11" coveredmethods="11" elements="49" coveredelements="49" complexity="0" loc="28" ncloc="28" packages="1" files="3" classes="3"/>
+<coverage generated="1681913523651" clover="3.2.0">
+  <project timestamp="1681913523651" name="All files">
+    <metrics statements="30" coveredstatements="30" conditionals="10" coveredconditionals="10" methods="11" coveredmethods="11" elements="51" coveredelements="51" complexity="0" loc="30" ncloc="30" packages="1" files="3" classes="3"/>
     <file name="accountModel.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/accountModel.js">
       <metrics statements="14" coveredstatements="14" conditionals="10" coveredconditionals="10" methods="4" coveredmethods="4"/>
       <line num="1" count="1" type="stmt"/>
@@ -20,12 +20,14 @@
       <line num="30" count="1" type="stmt"/>
     </file>
     <file name="accountView.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/accountView.js">
-      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
+      <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
     </file>
     <file name="transaction.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/transaction.js">
       <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
