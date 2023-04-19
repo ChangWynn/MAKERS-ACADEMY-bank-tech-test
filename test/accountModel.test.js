@@ -55,11 +55,22 @@ describe(AccountModel, () => {
     it("should convert the provided amount to absolute number before assigning to the transaction's debit property", () => {
       const amount = -100
       Transaction.prototype.credit = 0
-      Transaction.prototype.debit = amount
+      Transaction.prototype.debit = -amount
 
       model.addTransaction(amount)
       expect(model.transactions[0].credit).toEqual(0)
       expect(model.transactions[0].debit).toEqual(-amount)
+    })
+
+    it("should not accept anything else than numbers", () => {
+      const string = '100'
+      const array = [100]
+
+      model.addTransaction(string)
+      console.log(model.transactions)
+      expect(model.transactions.length).toEqual(0)
+      model.addTransaction(array)
+      expect(model.transactions.length).toEqual(0)
     })
   })
 })
