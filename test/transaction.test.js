@@ -25,7 +25,7 @@ describe(Transaction, () => {
       const fakeDate = new Date(2023, 3, 18) 
       const dateSpy = jest.spyOn(global, 'Date')
       dateSpy.mockImplementation(() => fakeDate)
-  
+
       const mockedTransaction = new Transaction()
       expect(mockedTransaction.date).toEqual(fakeDate)
     })

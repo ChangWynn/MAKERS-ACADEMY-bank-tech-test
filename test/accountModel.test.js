@@ -41,7 +41,7 @@ describe(AccountModel, () => {
         const amount = 100
         Transaction.prototype.credit = amount
         Transaction.prototype.debit = 0
-  
+
         model.addTransaction(amount)
         expect(model.transactions[0].credit).toEqual(amount)
         expect(model.transactions[0].debit).toEqual(0)
@@ -51,7 +51,7 @@ describe(AccountModel, () => {
     describe("when given a negative number", () => {
       it("should add a new transaction object in the transactions array", () => {
         const amount = -100
-  
+
         model.addTransaction(amount)
         expect(Transaction).toHaveBeenCalledTimes(1)
         expect(model.transactions.length).toEqual(1)
@@ -60,7 +60,7 @@ describe(AccountModel, () => {
       it("should assign the provided amount as positive number to the transaction's debit property", () => {
         Transaction.prototype.credit = 0
         Transaction.prototype.debit = 100
-  
+
         model.addTransaction(-100)
         expect(model.transactions[0].credit).toEqual(0)
         expect(model.transactions[0].debit).toEqual(100)
