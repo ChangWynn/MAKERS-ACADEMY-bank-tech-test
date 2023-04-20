@@ -18,30 +18,24 @@
 
 ---
 ## Getting started
-If you already have NVM and Node installed, download or clone this repository and run the following command:
-```
-npm install
-```
-If you don't, follow these instructions
-  - Install NVM - once done, restart your terminal
+
+Download or clone this repository and run the following commands:
+> If you already have NVM and Node installed, jump to step 3
+<br>
+
+1. Install NVM - once done, restart your terminal
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 ```
-  - Install Node.js
+2. Install Node.js
 ```
 nvm install node
 nvm use node
 ```
-  - Install Jest
+3. Install dependencies
 ```
-npm init -y
-npm add jest
-npm install -g jest
+npm install
 ```
-  - Install ESlint
- ```
- npm init @eslint/config
- ```
 ---
 ## How to use
   - Open the node REPL
@@ -62,7 +56,7 @@ const model = new AccountModel()
 const controller = new AccountController(model)
 ```
 
-The controller have three methods you can call:
+The controller have three methods that you can call:
   - deposit(amount)
   - withdraw(amount)
   - viewStatement()
@@ -74,9 +68,11 @@ controller.deposit(2000)
 controller.withdraw(500)
 controller.viewStatement()
 ```
+![test and coverage](/images/running_the_program.png)
 ---
 ## Run the tests
 ```
 jest
 ```
+![test and coverage](/images/tests_and_coverage.png)
 
