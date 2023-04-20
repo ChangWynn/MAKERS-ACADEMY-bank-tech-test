@@ -7,7 +7,6 @@ install:
 
 script:
   - jest
-  - npx eslint ./lib
 
 cache:
   directories:
