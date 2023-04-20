@@ -1,6 +1,6 @@
 # Bank Tech Test
 
-![test](https://img.shields.io/badge/tests-100%25-brightgreen?style=flat-square&logo=github)
+![test](https://img.shields.io/badge/test-100%25-brightgreen?style=flat-square&logo=github)
 ![coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square&logo=github)
 
 ![test](https://img.shields.io/badge/javascript-grey?style=flat-square&logo=javascript)
