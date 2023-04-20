@@ -22,7 +22,7 @@ describe(AccountModel, () => {
       expect(model.balance).toEqual(0)
     })
 
-    it("should have a transactions property initially set to an empty", () => {
+    it("should have a transactions property initially set to an empty array", () => {
       expect(model.transactions).toEqual([])
     })
   })
