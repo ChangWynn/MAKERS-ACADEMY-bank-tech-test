@@ -30,6 +30,8 @@ In my solution, the view has methods to format dates and figures. I chose to pla
 
 Though this is an app in an early stage of development, it is a banking app nonetheless so it seemed to be a logical decision to make the properties of the model and transaction class private. They are not directly accessible and can be interacted with via getter and setter methods for security purposes.
 
+Classes are short (less than 30 lines) and so are methods (less than 5 lines) which help readability and improve code quality.
+
 ### Why these choices?
 With this pattern, I believe it will be easier to add features to any of these aspects if the program were to grow. The model could hold more data such as the user's personal details, account number or pin code, the view would have new methods to render and present these data and the user will be able to interact with them via new methods in the controller. Transactions too are capable of adapting to changes since they have their own class. We can imagine them to be made from one user to another and store information about the recipient for example.
 
