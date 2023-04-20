@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1681961204982" clover="3.2.0">
-  <project timestamp="1681961204982" name="All files">
+<coverage generated="1681962380851" clover="3.2.0">
+  <project timestamp="1681962380851" name="All files">
     <metrics statements="58" coveredstatements="58" conditionals="12" coveredconditionals="12" methods="23" coveredmethods="23" elements="93" coveredelements="93" complexity="0" loc="58" ncloc="58" packages="1" files="5" classes="5"/>
     <file name="accountController.js" path="/Users/chang/Desktop/github_repo/makers_academy/02_makers_exercises/08_bank_tech_test/lib/accountController.js">
       <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
