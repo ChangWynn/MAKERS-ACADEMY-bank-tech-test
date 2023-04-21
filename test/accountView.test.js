@@ -10,10 +10,21 @@ describe(AccountView, () => {
       credit: 100,
       debit: 0
     }
+
     debitTransaction = {
       date: new Date(2023, 3, 19),
       credit: 0,
       debit: 100
+    }
+
+    modelWithCredit = {
+      balance: 0,
+      transactions: [creditTransaction]
+    }
+
+    modelWithDebit = {
+      balance: 0,
+      transactions: [debitTransaction]
     }
     view = new AccountView()
     consoleSpy = jest.spyOn(console, 'log')
@@ -34,85 +45,56 @@ describe(AccountView, () => {
 
     describe("date output", () => {
       it("should be in the format DD/MM/YYYY", () => {
-        model = {
-          balance: 0,
-          transactions: [creditTransaction]
-        }
         const formattedDate = "19/04/2023"
 
-        view.printStatement(model)
-
+        view.printStatement(modelWithCredit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedDate))
       })
     })
 
     describe("credit output", () => {
       it("should be displayed in a two decimals format", () => {
-        const model = {
-          balance: 0,
-          transactions: [creditTransaction]
-        }
         const formattedCredit = "100.00"
 
-        view.printStatement(model)
+        view.printStatement(modelWithCredit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedCredit))
       })
 
       it("should not display anything when it's equal to 0", () => {
-        const model = {
-          balance: 0,
-          transactions: [debitTransaction]
-        }
         const partialExpectedOutput = "19/04/2023 ||  ||"
 
-        view.printStatement(model)
+        view.printStatement(modelWithDebit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(partialExpectedOutput))
       })
     })
 
     describe("debit output", () => {
       it("should be displayed in a two decimals format", () => {
-        const model = {
-          balance: 0,
-          transactions: [debitTransaction]
-        }
         const formattedDebit = "19/04/2023 ||  || 100.00"
 
-        view.printStatement(model)
+        view.printStatement(modelWithDebit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedDebit))
       })
 
       it("should not display anything when it's equal to 0", () => {
-        const model = {
-          balance: 0,
-          transactions: [creditTransaction]
-        }
         const partialExpectedOutput = "19/04/2023 || 100.00 ||  ||"
 
-        view.printStatement(model)
+        view.printStatement(modelWithCredit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(partialExpectedOutput))
       })
     })
 
     describe('balance output', () => {
-      it("should be the sum of the current balance and the difference between credit and debit", () => {
-        const model = {
-          balance: 0,
-          transactions: [creditTransaction]
-        }
+      it("should be the sum of the current balance and the difference between credit and debit - test 1", () => {
         const expectedOutput = "19/04/2023 || 100.00 ||  || 100.00"
 
-        view.printStatement(model)
+        view.printStatement(modelWithCredit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput))
       })
       it("can be negative", () => {
-        const model = {
-          balance: 0,
-          transactions: [debitTransaction]
-        }
         const expectedOutput = "19/04/2023 ||  || 100.00 || -100.00"
 
-        view.printStatement(model)
+        view.printStatement(modelWithDebit)
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput))
       })
     })

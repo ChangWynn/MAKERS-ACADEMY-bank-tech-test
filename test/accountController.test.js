@@ -38,10 +38,10 @@ describe(AccountController, () => {
   describe(".viewStatement", () => {
     it("should display a list of transactions in a formatted form", () => {
       const fixedDate = new Date(2023, 3, 19)
-      const consoleSpy = jest.spyOn(console, "log")
-
       const fakeNewDate = jest.spyOn(global, "Date")
       fakeNewDate.mockImplementation(() => fixedDate)
+
+      const consoleSpy = jest.spyOn(console, "log")
 
       expectedOutput1 = "19/04/2023 || 1000.00 ||  || 1000.00"
       expectedOutput2 = "19/04/2023 ||  || 250.00 || 750.00"
@@ -49,11 +49,12 @@ describe(AccountController, () => {
       controller.deposit(1000)
       controller.withdraw(250)
       controller.viewStatement()
+
       expect(consoleSpy).toHaveBeenCalledTimes(1)
-      expect(consoleSpy.mock.calls[0][0])
-        .toEqual(expect.stringContaining(expectedOutput1))
-      expect(consoleSpy.mock.calls[0][0])
-        .toEqual(expect.stringContaining(expectedOutput2))
+      expect(consoleSpy)
+        .toHaveBeenCalledWith(expect.stringContaining(expectedOutput1))
+      expect(consoleSpy)
+        .toHaveBeenCalledWith(expect.stringContaining(expectedOutput2))
     })
   })
 })

@@ -14,6 +14,7 @@ describe(AccountModel, () => {
   describe("new instance", () => {
     it('should have its properties set as private', () => {
       const properties = Object.getOwnPropertyNames(model)
+
       expect(properties.includes('balance')).toBe(false)
       expect(properties.includes('transactions')).toBe(false)
     })
@@ -31,7 +32,7 @@ describe(AccountModel, () => {
     describe("when given a positive number", () => {
       it("should add a new transaction object in the transactions array", () => {
         const amount = 100
-  
+
         model.addTransaction(amount)
         expect(Transaction).toHaveBeenCalledTimes(1)
         expect(model.transactions.length).toEqual(1)
@@ -43,6 +44,7 @@ describe(AccountModel, () => {
         Transaction.prototype.debit = 0
 
         model.addTransaction(amount)
+        expect(Transaction).toHaveBeenCalledTimes(1)
         expect(model.transactions[0].credit).toEqual(amount)
         expect(model.transactions[0].debit).toEqual(0)
       })
@@ -57,11 +59,12 @@ describe(AccountModel, () => {
         expect(model.transactions.length).toEqual(1)
       })
   
-      it("should assign the provided amount as positive number to the transaction's debit property", () => {
+      it("should assign a positive number to the transaction's debit property", () => {
         Transaction.prototype.credit = 0
         Transaction.prototype.debit = 100
 
         model.addTransaction(-100)
+        expect(Transaction).toHaveBeenCalledTimes(1)
         expect(model.transactions[0].credit).toEqual(0)
         expect(model.transactions[0].debit).toEqual(100)
       })
@@ -69,13 +72,17 @@ describe(AccountModel, () => {
 
     it("should return if amount provided is 0", () => {
       model.addTransaction(0)
+      expect(Transaction).not.toHaveBeenCalled()
       expect(model.transactions.length).toEqual(0)
     })
 
     it("should return if argument provided is not a number", () => {
       model.addTransaction('100')
+      expect(Transaction).not.toHaveBeenCalled()
       expect(model.transactions.length).toEqual(0)
+
       model.addTransaction([100])
+      expect(Transaction).not.toHaveBeenCalled()
       expect(model.transactions.length).toEqual(0)
     })
   })
