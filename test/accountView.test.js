@@ -29,8 +29,7 @@ describe(AccountView, () => {
       const model = { balance: 0, transactions: []}
       const expectedHeader = "date || credit || debit || balance"
       view.printStatement(model)
-      expect(consoleSpy.mock.calls[0][0])
-      .toEqual(expect.stringContaining(expectedHeader))
+      expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedHeader))
     })
 
     describe("date output", () => {
@@ -43,8 +42,7 @@ describe(AccountView, () => {
 
         view.printStatement(model)
 
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(formattedDate))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedDate))
       })
     })
 
@@ -57,8 +55,7 @@ describe(AccountView, () => {
         const formattedCredit = "100.00"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(formattedCredit))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedCredit))
       })
 
       it("should not display anything when it's equal to 0", () => {
@@ -69,8 +66,7 @@ describe(AccountView, () => {
         const partialExpectedOutput = "19/04/2023 ||  ||"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(partialExpectedOutput))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(partialExpectedOutput))
       })
     })
 
@@ -83,8 +79,7 @@ describe(AccountView, () => {
         const formattedDebit = "19/04/2023 ||  || 100.00"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(formattedDebit))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(formattedDebit))
       })
 
       it("should not display anything when it's equal to 0", () => {
@@ -95,8 +90,7 @@ describe(AccountView, () => {
         const partialExpectedOutput = "19/04/2023 || 100.00 ||  ||"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(partialExpectedOutput))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(partialExpectedOutput))
       })
     })
 
@@ -109,8 +103,7 @@ describe(AccountView, () => {
         const expectedOutput = "19/04/2023 || 100.00 ||  || 100.00"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(expectedOutput))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput))
       })
       it("can be negative", () => {
         const model = {
@@ -120,8 +113,7 @@ describe(AccountView, () => {
         const expectedOutput = "19/04/2023 ||  || 100.00 || -100.00"
 
         view.printStatement(model)
-        expect(consoleSpy.mock.calls[0][0])
-          .toEqual(expect.stringContaining(expectedOutput))
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput))
       })
     })
 
@@ -135,9 +127,9 @@ describe(AccountView, () => {
       const expectedOutput3 = "19/04/2023 ||  || 100.00 || 100.00"
 
       view.printStatement(model)
-      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput3))
-      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput2))
-      expect(consoleSpy.mock.calls[0][0]).toEqual(expect.stringContaining(expectedOutput1))
+      expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput3))
+      expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput2))
+      expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(expectedOutput1))
     })
   })
 })
