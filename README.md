@@ -9,12 +9,38 @@
 ![test](https://img.shields.io/badge/eslint-grey?style=flat-square&logo=eslint)
 
 ## Contents
-  - [Approach](#approach)
+  - [The challenge](#the-challenge)
+  - [The approach](#the-approach)
   - [Getting Started](#getting-started)
   - [How to use](#how-to-use)
   - [Run the tests](#run-the-tests)
 ---
-## Approach
+## The challenge
+
+### Requirements
+
+* You should be able to interact with your code via a REPL like IRB or Node.  (You don't need to implement a command line interface that takes input from STDIN.)
+* Deposits, withdrawal.
+* Account statement (date, amount, balance) printing.
+* Data can be kept in memory (it doesn't need to be stored to a database or anything).
+
+### Acceptance criteria
+
+**Given** a client makes a deposit of 1000 on 10-01-2023  
+**And** a deposit of 2000 on 13-01-2023  
+**And** a withdrawal of 500 on 14-01-2023  
+**When** she prints her bank statement  
+**Then** she would see
+
+```
+date || credit || debit || balance
+14/01/2023 || || 500.00 || 2500.00
+13/01/2023 || 2000.00 || || 3000.00
+10/01/2023 || 1000.00 || || 1000.00
+```
+
+---
+## The approach
 ### Introduction
 As simplistic as it may look as per requirements, this is a program that has potential to grow and become a lot more complex so scalability was my first concern when approaching the test. The program has to allow easy changes to adapt to a potential growth and a code that is easy to change is a code that has a well implemented separation of concerns. 
 
